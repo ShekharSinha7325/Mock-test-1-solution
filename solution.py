@@ -1,11 +1,13 @@
-class Solution:
-  def moveZeroes(self, nums: list[int]) -> None:
-        """
-        Do not return anything, modify nums in-place instead.
-        """
-        for i in range(len(nums)):
-            if(nums[i]==0):
-                nums.remove(nums[i])
-                nums.append(0)
-            else:
-                continue
+def firstUniqChar(s):
+    freq = {}
+    
+    # Update frequencies
+    for char in s:
+        freq[char] = freq.get(char, 0) + 1
+    
+    # Find the first non-repeating character
+    for i in range(len(s)):
+        if freq[s[i]] == 1:
+            return i
+    
+    return -1
